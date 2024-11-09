@@ -18,10 +18,13 @@ export default {
   methods:{
     addTodo: function(){
       if (this.newTodoItem !== ''){
-        const obj = {completed: false, item: this.newTodoItem }
+        
         // localStorage.setItem( this.newTodoItem,this.newTodoItem )
         // localStorage.setItem( this.newTodoItem,obj )
-        localStorage.setItem( this.newTodoItem,JSON.stringify(obj) )
+
+        // 이렇게 바꿔서 인자를 보내기
+        // this.$emit('이벤트 이름',인자1,인자2)
+        this.$emit('addTodoItem',this.newTodoItem)
         this.clearInput()
       }
     },

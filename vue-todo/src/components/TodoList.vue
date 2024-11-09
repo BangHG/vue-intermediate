@@ -2,7 +2,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item" class="shadow">
+      <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.item" class="shadow">
         <i class="checkBtn bi bi-square"
          v-bind:class="{checkBtnCompleted: todoItem.completed}"
          v-on:click="toggleComplete(todoItem, index)">
@@ -23,12 +23,12 @@
 
 <script>
 export default {
-
-  data: function () {
-    return {
-      todoItems: []
-		}
-	},
+props:['propsdata'],
+  // data: function () {
+  //   return {
+  //     todoItems: []
+	// 	}
+	// },
   methods:{
     removeTodo:function(todoItem, index){
       console.log(todoItem,index);
@@ -52,25 +52,25 @@ export default {
 
   },
   //created:  인스턴스 생성시 호출되는 Hook 로직
-  created:function(){
-    if(localStorage.length > 0){
-      for(var i = 0 ; i < localStorage.length; i ++){
-        if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-          // this.todoItems.push(localStorage.key(i))
-          //devlope. 완수된 것과 키쌍
-          // const key = localStorage.getItem(localStorage.key(i));
-          // const parseKey = JSON.parse( key ) //object로 다시 바꾸는 방법 (로컬스토리지의 특성)
-          // console.log(parseKey)
-          // this.todoItems.push(parseKey)
+  // created:function(){
+  //   if(localStorage.length > 0){
+  //     for(var i = 0 ; i < localStorage.length; i ++){
+  //       if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
+  //         // this.todoItems.push(localStorage.key(i))
+  //         //devlope. 완수된 것과 키쌍
+  //         // const key = localStorage.getItem(localStorage.key(i));
+  //         // const parseKey = JSON.parse( key ) //object로 다시 바꾸는 방법 (로컬스토리지의 특성)
+  //         // console.log(parseKey)
+  //         // this.todoItems.push(parseKey)
 
 
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+  //         this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
 
-          // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))))
-        }
-      }
-    }
-  },
+  //         // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))))
+  //       }
+  //     }
+  //   }
+  // },
 
 
 }
