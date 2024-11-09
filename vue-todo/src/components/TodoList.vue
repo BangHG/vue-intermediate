@@ -3,7 +3,7 @@
   <div>
     <ul>
       <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item" class="shadow">
-        <i class="checkBtn bi bi-check-circle-fill"
+        <i class="checkBtn bi bi-square"
          v-bind:class="{checkBtnCompleted: todoItem.completed}"
          v-on:click="toggleComplete(todoItem, index)">
         </i>
@@ -97,18 +97,22 @@ li {
 	border-radius: 5px;
   overflow: hidden;
   padding-right: 50px;
+  align-items: center;
 }
-.checkBtn {
-	line-height: 45px;
-	color: #62acde;
-	margin-right: 5px;
+.checkBtn {	
+	color: #333;
+	margin-right: 0.4em;
+  font-size: 1.2em;
+}
+.checkBtnCompleted:before {
+  content: "\f26d" !important;
 }
 .checkBtnCompleted {
-	color: #b3adad;
+	/* color: #b3adad; */
 }
 .textCompleted {
 	text-decoration: line-through;
-	color: #b3adad;
+	color: #888;
 }
 .removeBtn {
   position: absolute;
