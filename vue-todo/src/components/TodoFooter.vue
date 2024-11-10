@@ -1,4 +1,3 @@
-
 <template>
   <div class="clearAllContainer">
     <span class="clearAllBtn" v-on:click="clearTodo">Clear All</span>
@@ -7,28 +6,27 @@
 
 <script>
 export default {
-methods:{
-  clearTodo:function(){
-    localStorage.clear();
-  }
-}
-}
+  methods: {
+    clearTodo: function () {
+      localStorage.clear();
+    },
+  },
+};
 </script>
 
 <style>
-.clearAllBtn{
+.clearAllBtn {
   background-color: #fff;
   padding: 1em;
-  color:#e20303;
+  color: #e20303;
   display: block;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
-
 }
-.clearAllContainer{  
+.clearAllContainer {
   max-width: 200px;
-  margin:0 auto;
+  margin: 0 auto;
   text-align: center;
 }
 </style>
